@@ -35,7 +35,18 @@ li {
   list-style: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* navbar css start */
+
+header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 44;
+}
 
 nav {
   display: flex;
@@ -57,11 +68,18 @@ nav ul {
 }
 
 nav ul li {
+  cursor: pointer;
   list-style: none;
   padding: 0.5rem 1.5rem;
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--primary-color, #3a3a3a);
+}
+
+nav .nav-toggler-icon,
+.mob-cart-icon {
+  display: none;
+  cursor: pointer;
 }
 
 /* navbar css end */
@@ -87,7 +105,7 @@ nav ul li {
   color: var(--primary-color, #3a3a3a);
   font-size: 1.6rem;
   font-weight: 500;
-  padding: 1rem 0 1.5rem;
+  padding: 1rem 0 2rem;
 }
 
 .banner-section .banner-content .btn {
@@ -109,11 +127,32 @@ nav ul li {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 60%;
 }
 
-.banner-section .banner-img .ellipsis {
+.banner-section .banner-img .circle {
+  position: relative;
+  border: 3px solid #f1e4ff;
+  border-radius: 50%;
+  display: flex;
+  width: max-content;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  z-index: 2;
+}
+
+.banner-section .banner-img .circle img {
+  z-index: 3;
+}
+
+.banner-section .banner-img .circle .ellipsis {
   position: absolute;
   z-index: -1;
+}
+
+.banner-section .banner-img .circle .ellipsis .mobile-ellipsis {
+  display: none;
 }
 
 /* banner section end */
@@ -128,6 +167,7 @@ nav ul li {
   padding: 5rem 4rem;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 /* Brand Logo Section end */
@@ -154,8 +194,9 @@ nav ul li {
   border: none;
   outline: none;
   color: #e02c6d;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 700;
+  background: transparent;
 }
 
 .collection-section .see-button .btn span {
@@ -321,3 +362,128 @@ footer .footer-content .icons i {
 }
 
 /* footer section end here */
+
+@media screen and (max-width: 1024px) {
+  nav h1 {
+    font-size: calc(1vw + 1.6rem);
+  }
+
+  nav ul li {
+    font-size: calc(1vw + 0.6rem);
+  }
+}
+
+/* Media Query for Tablet Device Start */
+
+@media screen and (max-width: 992px) {
+  main {
+    padding: 0 8rem;
+  }
+
+  nav .nav-toggler-icon i {
+    font-size: 2.4rem;
+  }
+
+  nav .nav-toggler-icon,
+  .mob-cart-icon {
+    display: block;
+  }
+
+  nav,
+  #toggler {
+    position: relative;
+  }
+
+  nav .nav-items {
+    display: none;
+  }
+
+  nav .nav-items li {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  nav .show-nav-items {
+    display: block;
+    position: absolute;
+    left: -1rem;
+    top: 7rem;
+    width: calc(100% + 2rem);
+    background: whitesmoke;
+    padding-bottom: 5rem;
+  }
+
+  .banner-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .banner-section .banner-content {
+    padding: 3rem 0;
+    order: 2;
+    text-align: center;
+  }
+
+  .banner-section .banner-img {
+    order: 1;
+    margin: 3rem auto;
+  }
+
+  .brand-logo-section {
+    justify-content: space-evenly;
+  }
+
+  .collection-section .card-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .collection-section {
+    padding: 5rem 0 3rem;
+  }
+
+  .feature-section {
+    flex-direction: column;
+  }
+
+  .feature-section .image {
+    order: 2;
+  }
+
+  .feature-section .feature-content {
+    width: 100%;
+    order: 1;
+    text-align: center;
+  }
+}
+
+/* Media Query for Tablet Device End */
+
+/* ================================================================================================================ */
+
+/* Media Query for Medium Device Start */
+
+@media screen and (max-width: 768px) {
+  .banner-section .banner-content h1 {
+    font-size: calc(1vw + 3rem);
+  }
+
+  .banner-section .banner-img .circle .ellipsis .mobile-ellipsis {
+    display: block;
+  }
+
+  .banner-section .banner-img .circle .ellipsis .desktop-ellipsis {
+    display: none;
+  }
+}
+
+/* Media Query for Medium Device End */
+
+/* Media Query for Mobile Device Start */
+
+@media screen and (max-width: 576px) {
+  .collection-section .card-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Media Query for Mobile Device End */
