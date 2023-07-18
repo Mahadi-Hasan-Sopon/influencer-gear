@@ -104,11 +104,17 @@ nav ul li {
   padding-left: 0.5rem;
 }
 
-.banner-section .banner-img {
+.banner-section .banner-img .circle {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.banner-section .banner-img .circle {
+  border: 2px solid #f1e4ff;
+  border-radius: 50%;
+  z-index: -1;
 }
 
 .banner-section .banner-img .ellipsis {
