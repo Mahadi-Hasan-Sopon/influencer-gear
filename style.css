@@ -122,37 +122,30 @@ nav .nav-toggler-icon,
   padding-left: 0.5rem;
 }
 
-.banner-section .banner-img .circle {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 60%;
-}
-
-.banner-section .banner-img .circle {
-  position: relative;
-  border: 3px solid #f1e4ff;
-  border-radius: 50%;
-  display: flex;
-  width: max-content;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  z-index: 2;
-}
-
-.banner-section .banner-img .circle img {
-  z-index: 3;
-}
-
-.banner-section .banner-img .circle .ellipsis {
-  position: absolute;
-  z-index: -1;
-}
-
 .banner-section .banner-img .circle .ellipsis .mobile-ellipsis {
   display: none;
+}
+
+.banner-img {
+  position: relative;
+  border: 5px solid #f1e4ff;
+  border-radius: 50%;
+  padding: 2rem;
+}
+
+.banner-img .img::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background-repeat: no-repeat;
+  background: url(logos/ellipsis.svg);
+  background-size: cover;
+  border-radius: 50%;
+  background-position: center;
+  z-index: -1;
 }
 
 /* banner section end */
@@ -463,10 +456,9 @@ footer .footer-content .icons i {
 /* Media Query for Medium Device Start */
 
 @media screen and (max-width: 768px) {
-
-main {
-padding: 0 6rem;
-}
+  main {
+    padding: 0 6rem;
+  }
 
   .banner-section .banner-content h1 {
     font-size: calc(1vw + 3rem);
@@ -486,13 +478,9 @@ padding: 0 6rem;
 /* Media Query for Mobile Device Start */
 
 @media screen and (max-width: 576px) {
-
-main {
-padding: 0 3rem;
-
-}
-
-
+  main {
+    padding: 0 3rem;
+  }
 
   .collection-section .card-section {
     grid-template-columns: 1fr;
